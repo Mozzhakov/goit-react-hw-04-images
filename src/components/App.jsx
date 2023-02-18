@@ -16,7 +16,7 @@ export const App = () => {
   const [showModal, setShowModal] = useState(false);
   const [loadMoreBtnVisible, setLoadMoreBtnVisible] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [largeImageURL, setLargeImageURL] = useState('');
   const [imageTags, setImageTags] = useState('');
 
@@ -67,13 +67,13 @@ export const App = () => {
             theme: 'dark',
           });
         }
-
+        setImagesPerPage(12);
         setImages(state => [...state, ...hits]);
 
         setLoadMoreBtnVisible(true);
       } catch (error) {
-        setError(error);
-
+        // setError(error);
+        console.log(error);
         toast.error(`Someting went wrong`, {
           position: 'top-right',
           autoClose: 5000,
@@ -89,7 +89,7 @@ export const App = () => {
       }
     }
     getImages();
-  }, [inputValue, page]);
+  }, [imagesPerPage, inputValue, page]);
   // ---------------------------------- form submit
   const handleFormSubmit = value => {
     if (inputValue === value) {

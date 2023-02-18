@@ -5,18 +5,18 @@ import css from '../styles/styles.module.css';
 const modalRoot = document.querySelector('#modal--root');
 
 export const Modal = ({ largeImageURL, imageTags, onClose }) => {
-  useEffect(() => {
-    window.addEventListener('keyup', handleKeyUp);
-    return () => {
-      window.removeEventListener('keyup', handleKeyUp);
-    };
-  }, []);
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleKeyUp = e => {
     if (e.code === 'Escape') {
       onClose();
     }
   };
+  useEffect(() => {
+    window.addEventListener('keyup', handleKeyUp);
+    return () => {
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, [handleKeyUp]);
 
   const handleOverlayClick = e => {
     if (e.target === e.currentTarget) {

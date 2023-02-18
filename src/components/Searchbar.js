@@ -1,4 +1,4 @@
-import { Component, useState } from 'react';
+import { useState } from 'react';
 import css from '../styles/styles.module.css';
 import { ImSearch } from 'react-icons/im';
 import { toast } from 'react-toastify';
